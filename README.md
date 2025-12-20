@@ -6,6 +6,7 @@
 > If you want to have code completions, you will need to install CQL [language server](https://github.com/Akzestia/cqlls)
 
 ```sh
+# Install cqlls using cargo
 cargo install cql_lsp
 ```
 
