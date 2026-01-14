@@ -1,5 +1,8 @@
 # CQL Support for NeoVim
 
+> [!TIP]
+> CQL is now supported by GitHub | [github-linguist v9.4.0](https://github.com/github-linguist/linguist/releases/tag/v9.4.0)
+
 #### Install via Lazy.nvim
 
 > [!NOTE]
