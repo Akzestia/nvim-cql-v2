@@ -1,35 +1,23 @@
 local M = {}
 
 function M.setup()
-    vim.filetype.add({
-        extension = {
-            cql = "cqlang",
-        },
-    })
-    vim.treesitter.language.register("cql", "cqlang")
+  local parsers = require("nvim-treesitter.parsers")
 
-    local ok, ts_parsers = pcall(require, "nvim-treesitter.parsers")
-    if ok and ts_parsers.list then
-        ts_parsers.list.cql = {
-            install_info = {
-                url = "https://github.com/Akzestia/tree-sitter-cql",
-                branch = "main",
-                files = { "src/parser.c" },
-            },
-            filetype = "cqlang",
-            maintainers = { "@Akzestia" },
-        }
-    end
+  local parser_configs = parsers.get_parser_configs
+    and parsers.get_parser_configs()
+    or parsers
 
-    vim.api.nvim_create_autocmd("FileType", {
-        pattern = "cqlang",
-        callback = function(args)
-            local started = pcall(vim.treesitter.start, args.buf, "cql")
-            if not started then
-                vim.notify("CQL parser not installed. Run :TSInstall cql", vim.log.levels.WARN, { once = true })
-            end
-        end,
-    })
+  parser_configs.cql = {
+    install_info = {
+      url = "https://github.com/Akzestia/tree-sitter-cql",
+      branch = "main",
+      files = { "src/parser.c" },
+      revision = "b3fb29a60d096abf36726cfa2c2480e7c5ea777f",
+    },
+    filetype = "cqlang",
+  }
+
+  vim.treesitter.language.register("cql", "cqlang")
 end
 
 return M
