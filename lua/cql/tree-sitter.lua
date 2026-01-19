@@ -11,6 +11,23 @@ function M.setup()
     },
   }
 end})
+
+    vim.filetype.add({
+        extension = {
+            cql = "cqlang",
+        },
+    })
+    vim.treesitter.language.register("cql", "cqlang")
+
+    vim.api.nvim_create_autocmd("FileType", {
+        pattern = "cqlang",
+        callback = function(args)
+            local started, err = pcall(vim.treesitter.start, args.buf, "cql")
+            if not started then
+                vim.notify("CQL: " .. tostring(err), vim.log.levels.WARN)
+            end
+        end,
+    })
 end
 
 return M
