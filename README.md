@@ -11,8 +11,8 @@
 > 
 > ALTER MATERIALIZED VIEW cycling.cyclist_by_age
 > WITH compression = {
->    'sstable_compression' : 'DeflateCompressor',
->   'chunk_length_kb' : 64
+>    'stable_compression' : 'DeflateCompressor',
+>    'chunk_length_kb' : 64
 > }
 > AND compaction = {
 >    'class' : 'SizeTieredCompactionStrategy',
