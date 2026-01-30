@@ -8,7 +8,7 @@ function M.setup()
 	if not configs.cql then
 		configs.cql = {
 			default_config = {
-				cmd = { "cql_lsp" },
+				cmd = { "cqlls" },
 				filetypes = { "cqlang" },
 				root_dir = function(fname)
 					return util.find_git_ancestor(fname) or util.path.dirname(fname)
