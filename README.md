@@ -33,7 +33,7 @@
 
 ```sh
 # Install cqlls using cargo
-cargo install cql_lsp
+cargo install cqlls
 ```
 
 ```lua
