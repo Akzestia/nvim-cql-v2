@@ -3,12 +3,10 @@
 ### Install
 
 ```sh
-# Install Language Server
 cargo install cqlls
 ```
 
 ```lua
--- lua/plugins/nvim-cql.lua
 return {
   {
     "Akzestia/nvim-cql-v2",
