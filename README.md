@@ -1,6 +1,6 @@
 # CQL Support for NeoVim
 
-### Install
+### Setup
 
 ```sh
 cargo install cqlls
